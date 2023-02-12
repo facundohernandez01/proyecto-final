@@ -1,4 +1,4 @@
-import { Switch, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {CartContext} from '././Context/index';
 import React, { useContext } from "react";
 import ItemListContainer from "./ItemListContainer";

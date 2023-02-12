@@ -17,7 +17,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from "react";
 import ConfirmationDialogRaw from '../Checkout/checkout_modal'
 import Grid from '@mui/material/Grid'
-import Item from '@mui/material/Item'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -65,31 +64,35 @@ const Cart = ({ handleClose, open }) => {
         <List>
         {cart.map((item) => (
         <ListItem key={item.id}
-        secondaryAction={ 
-            <IconButton aria-label="delete" size="large" onClick={() => eliminaItem(item.id)}>
-            <DeleteIcon fontSize="inherit" />
-            </IconButton>
-        }>
-            <img className='imgCart' src={item.image_url}>
-            </img>
-            <Grid item xs={6} >
-            <TextField sx={{
-              width: 70,
-              margin:2
-            }}
-              id="outlined-number"
-              label="cant"
-              value={item.cantidad}
-          ></TextField>
-            </Grid>           
-            <Grid item xs={6} >
-            <TextField sx={{width: 90, margin:1 }}label="$" value={item.price}/>
-            </Grid>
-            <Grid item xs={12} >
-            <ListItemText sx={{alignContent: 'left'}} 
-            item={item} key={item.id} primary={item.title} secondary={item.categoria}>
-            </ListItemText>
-            </Grid>           
+        secondaryAction={  <Grid item xs={1} >
+
+        <IconButton aria-label="delete" size="large" onClick={() => eliminaItem(item.id)}>
+        <DeleteIcon fontSize="inherit" />
+        </IconButton>
+        </Grid>
+    }>  
+    <Grid container spacing={2}>
+    <Grid item xs={4} lg={1}>
+        <img className='imgCart' src={item.image_url}>
+        </img>
+        </Grid>
+        <Grid item xs={3} lg={1}>
+        <TextField 
+          id="outlined-number"
+          label="cant"
+          value={item.cantidad}
+      ></TextField>
+        </Grid>           
+        <Grid item xs={3} lg={1}>
+        <TextField label="$" value={item.price}/>
+        </Grid>
+        <Grid item xs={12} lg={8}>
+        <ListItemText sx={{alignContent: 'left'}} 
+        item={item} key={item.id} primary={item.title} secondary={item.categoria}>
+        </ListItemText>
+        </Grid>                
+        </Grid>           
+      
         </ListItem>
         ))}
         <ListItem>       
