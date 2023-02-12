@@ -17,6 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from "react";
 import ConfirmationDialogRaw from '../Checkout/checkout_modal'
 import Grid from '@mui/material/Grid'
+import Item from '@mui/material/Item'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -71,8 +72,8 @@ const Cart = ({ handleClose, open }) => {
         }>
             <img className='imgCart' src={item.image_url}>
             </img>
-            <Grid xs={6} >
-            <TextField xs={12} sx={{
+            <Grid item xs={6} >
+            <TextField sx={{
               width: 70,
               margin:2
             }}
@@ -81,11 +82,11 @@ const Cart = ({ handleClose, open }) => {
               value={item.cantidad}
           ></TextField>
             </Grid>           
-            <Grid xs={6} >
+            <Grid item xs={6} >
             <TextField sx={{width: 90, margin:1 }}label="$" value={item.price}/>
             </Grid>
-            <Grid xs={12} >
-            <ListItemText xs={12} sx={{alignContent: 'left'}} 
+            <Grid item xs={12} >
+            <ListItemText sx={{alignContent: 'left'}} 
             item={item} key={item.id} primary={item.title} secondary={item.categoria}>
             </ListItemText>
             </Grid>           
