@@ -70,7 +70,7 @@ const Cart = ({ handleClose, open }) => {
         }>
             <img className='imgCart' src={item.image_url}>
             </img>
-          <TextField sx={{
+          <TextField xs={12} sx={{
             width: 70,
             margin:2
           }}
@@ -78,8 +78,8 @@ const Cart = ({ handleClose, open }) => {
                     label="cant"
                     value={item.cantidad}
           ></TextField>
-            <TextField  sx={{width: 90, margin:1 }}label="$" value={item.price}/>
-            <ListItemText sx={{alignContent: 'left'}} 
+            <TextField xs={12} sx={{width: 90, margin:1 }}label="$" value={item.price}/>
+            <ListItemText xs={12} sx={{alignContent: 'left'}} 
             item={item} key={item.id} primary={item.title} secondary={item.categoria}>
             </ListItemText>           
         </ListItem>
